@@ -1,0 +1,4 @@
+
+.board-row {
+  @apply flex justify-evenly items-center;
+}
