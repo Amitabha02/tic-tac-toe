@@ -49,9 +49,17 @@ const Board = (props) => {
 
   }
 
+  const isBoardFull = state.every((cell) => cell!= null);
+
+  const isDraw = !isWinner && isBoardFull;
+
+
   return (
+
     <div className= "flex items-center justify-center min-h-screen">
     <div className="board-Container items-center justify-center w-1/3">
+
+    {/* If there is a winner */}
       {isWinner ? (
         <div className="flex flex-col items-center justify-center h-screen">
           <span className="text-green-400 text-4xl font-semibold text-center">
@@ -65,7 +73,26 @@ const Board = (props) => {
             Play Again
           </button>
         </div>
-      ) : (
+      )
+      
+      //If the match is draw
+
+      : isDraw ? 
+
+      <div className="flex flex-col items-center justify-center h-screen">
+          <span className="text-green-400 text-4xl font-semibold text-center">
+            Math Draw click on the below button to play again
+          </span>
+
+          <button
+            className="text-white bg-green-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 focus:ring-offset-black font-semibold px-4 py-2 rounded-xl transition duration-200 shadow-md m-4"
+            onClick={() => handleReset()}
+          >
+            Play Again
+          </button>
+        </div>
+      
+      : (
         <>
           <h1 className=" flex text-4xl font-semibold text-green-500 justify-center align-center">
             Tic Tac Toe Game
