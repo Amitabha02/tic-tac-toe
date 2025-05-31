@@ -92,7 +92,9 @@ const Board = (props) => {
           </button>
         </div>
       
-      : (
+      :
+        // Starting a new Match
+        (
         <>
           <h1 className=" flex text-4xl font-semibold text-green-500 justify-center align-center">
             Tic Tac Toe Game
